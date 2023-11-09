@@ -26,11 +26,13 @@ const Hotel = () => {
   const [slideNumber, setSlideNumber] = useState(0);
   const [open, setOpen] = useState(false);
 
-const {data,loading,error} = useFetch(`/hotels/find/${id}`)
+const {data,loading,error} = useFetch("/hotels/find/${id}")
+console.log("data",data);
 
 // to get to know how many nights they gonna stay
 const {dates,options}= useContext(SearchContext)
-
+console.log("dates",dates);
+console.log("options",options);
 const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
   function dayDifference(date1, date2) {
     const timeDiff = Math.abs(date2.getTime() - date1.getTime());
