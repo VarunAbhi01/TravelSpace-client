@@ -23,6 +23,7 @@ const Reserve = ({ setOpen, hotelId }) => {
 
     while (date <= end) {
       dates.push(new Date(date).getTime());
+      // to iterate over each date
       date.setDate(date.getDate() + 1);
     }
 
@@ -35,13 +36,16 @@ const Reserve = ({ setOpen, hotelId }) => {
     const isFound = roomNumber.unavailableDates.some((date) =>
       alldates.includes(new Date(date).getTime())
     );
-
+// if its found that mean that date is already booked so unavailable so if 
+// isFound is true it emans is isAvailable will be true but we shoudl tell its 
+// not availble so returned !isFound
     return !isFound;
   };
 
   const handleSelect = (e) => {
     const checked = e.target.checked;
     const value = e.target.value;
+    // value is the room id
     setSelectedRooms(
       checked
         ? [...selectedRooms, value]
