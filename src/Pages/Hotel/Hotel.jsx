@@ -23,10 +23,11 @@ const Hotel = () => {
   // console.log(location)
   // path will be like this "/hotels/653fbd96e57abea74e3c360f"
   const id = location.pathname.split("/")[2];
+  // console.log("id",id)
   const [slideNumber, setSlideNumber] = useState(0);
   const [open, setOpen] = useState(false);
 
-const {data,loading,error} = useFetch("/hotels/find/${id}")
+const {data,loading,error} = useFetch(`/hotels/find/${id}`);
 console.log("data",data);
 
 // to get to know how many nights they gonna stay
@@ -34,13 +35,15 @@ const {dates,options}= useContext(SearchContext)
 console.log("dates",dates);
 console.log("options",options);
 const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
+
   function dayDifference(date1, date2) {
     const timeDiff = Math.abs(date2.getTime() - date1.getTime());
     const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
     return diffDays;
   }
 
-  const days = dayDifference(dates[0].endDate, dates[0].startDate);
+  const days = dates[0] ? dayDifference(dates[0].endDate, dates[0].startDate) : 0;
+
 
   const handleOpen = (i) => {
     setSlideNumber(i);

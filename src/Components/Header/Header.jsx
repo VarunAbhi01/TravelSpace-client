@@ -18,6 +18,7 @@ import {
   import { format } from "date-fns"; // this is to transform the date in javascript to readable form 
   import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../../Context/SearchContext";
+import { AuthContext } from "../../Context/AuthContext";
   
   const Header = ({ type }) => {
     const [destination, setDestination] = useState("");
@@ -42,6 +43,8 @@ import { SearchContext } from "../../Context/SearchContext";
       room: 1,
     });
   
+    const {user} = useContext(AuthContext)
+
     const handleOption = (name, operation) => {
 // prev state is passed nd is rendered along with the edited element 
       setOptions((prev) => {
@@ -111,7 +114,7 @@ import { SearchContext } from "../../Context/SearchContext";
                 Get rewarded for your travels – unlock instant savings of 10% or
                 more with a free Lamabooking account
               </p>
-              <button className="headerBtn">Sign in / Register</button>
+              {!user && <button className="headerBtn">Sign in / Register</button>}
 {/*///////////////////////////////////////////////////////////////////////////////////////// Header Search bar */}
               <div className="headerSearch">
                 <div className="headerSearchItem">
