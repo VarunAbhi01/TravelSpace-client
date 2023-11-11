@@ -20,7 +20,8 @@ const Hotels = () => {
   const [min, setMin] = useState(undefined);
   const [max, setMax] = useState(undefined);
 
-  const {data,loading,error,reFetch} = useFetch(`/hotels?city=${destination}&min=${min || 0 }&max=${max || 999}`)
+  // const {data,loading,error,reFetch} = useFetch(`/hotels?city=${destination}&min=${min || 0 }&max=${max || 999}`)
+  const {data,loading,error,reFetch} = useFetch(`/hotels?city=${destination}&min=${min !== undefined ? min : 0}&max=${max !== undefined ? max : 400}`)
   console.log("data is", data)
   const handleClick = () => {
     reFetch();
@@ -121,6 +122,7 @@ const Hotels = () => {
                 ))}
               </>
             )}
+            
           </div>
         </div>
       </div>

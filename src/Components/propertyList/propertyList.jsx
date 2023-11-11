@@ -24,6 +24,7 @@ const PropertyList = () => {
       ) : (
         <>
           {data &&
+          
             images.map((img,i) => (
               <div className="pListItem" key={i}>
                 <img
@@ -31,6 +32,7 @@ const PropertyList = () => {
                   alt=""
                   className="pListImg"
                 />
+                
                 <div className="pListTitles">
                   {/* ? to make sure the data array is not empty */}
                   <h1>{data[i]?.type}</h1>

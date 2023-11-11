@@ -76,11 +76,14 @@
   .headerSearchInput {
     border: none;
     outline: none;
+    font-weight:800;
+    color: grey;
   }
   
   .headerSearchText {
-    color: lightgray;
+    color: grey;
     cursor: pointer;
+    font-weight: bold;
   }
   
   .date {
@@ -88,6 +91,7 @@
     top: 50px;
     z-index: 2;
      /* up to be greater than z index of featured */
+     
   }
   
   .options {

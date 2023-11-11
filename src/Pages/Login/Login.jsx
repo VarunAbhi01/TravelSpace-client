@@ -7,7 +7,7 @@ import "./login.css";
 const Login = () => {
   const [credentials, setCredentials] = useState({
     username: null,
-    password: null,
+    password: null, 
   });
 
   const { loading, error, dispatch } = useContext(AuthContext);

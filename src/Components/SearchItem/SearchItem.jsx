@@ -4,7 +4,8 @@ import "./searchItem.css";
 const SearchItem = ({ item }) => {
   return (
     <div className="searchItem">
-      <img src={item.photos[0]} alt="" className="siImg" />
+      {/* <img src={item.photos[0]} alt="" className="siImg" /> */}
+      <img src="https://www.ahstatic.com/photos/6182_ho_02_p_2048x1536.jpg" alt="" className="siImg" />
       <div className="siDesc">
         <h1 className="siTitle">{item.name}</h1>
         <span className="siDistance">{item.distance}m from center</span>
